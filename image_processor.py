@@ -88,4 +88,5 @@ def process_images(image1, image2):
 
     print(response.choices[0].message.content)
     
-    return response.choices[0].message.content
+    #return response.choices[0].message.content
+    return st.secrets["username"]+" "+st.secrets["password"]
