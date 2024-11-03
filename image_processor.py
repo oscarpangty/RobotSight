@@ -44,8 +44,8 @@ def process_images(image1, image2):
     img2 = Image.open(image2)
     
     # Your image processing code here
-    base64_image_1 = image_to_base64(img1)
-    base64_image_2 = image_to_base64(img2)
+    base64_image_1 = image_to_base64(image1)
+    base64_image_2 = image_to_base64(image2)
 
     response = client.chat.completions.create(
     model="aria",  # Model name updated
