@@ -42,10 +42,12 @@ def process_images(image1, image2):
     # Example of loading and performing an operation with PIL (optional)
     img1 = Image.open(image1)
     img2 = Image.open(image2)
-    
+
+    img1.save("image1.jpg", format="JPEG")
+    img2.save("image2.jpg", format="JPEG")
     # Your image processing code here
-    base64_image_1 = image_to_base64(image1)
-    base64_image_2 = image_to_base64(image2)
+    base64_image_1 = image_to_base64("image1.jpg")
+    base64_image_2 = image_to_base64("image2.jpg")
     #base64_image_1 = image_to_base64('./room.jpg')
     #base64_image_2 = image_to_base64('./cleanroom.jpeg')
     print(base64_image_1)
