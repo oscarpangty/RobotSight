@@ -3,7 +3,7 @@ from PIL import Image
 import base64
 
 base_url = 'https://api.rhymes.ai/v1'
-api_key = 'ee0b16e052cc458a841b6a01053d25b8'  
+api_key = st.secrets["aria_key"]  
 
 from openai import OpenAI
 
@@ -50,8 +50,6 @@ def process_images(image1, image2):
     base64_image_2 = image_to_base64("image2.jpg")
     #base64_image_1 = image_to_base64('./room.jpg')
     #base64_image_2 = image_to_base64('./cleanroom.jpeg')
-    print(st.secrets["username"])
-    print(st.secrets["password"])
     
     response = client.chat.completions.create(
     model="aria",  # Model name updated
