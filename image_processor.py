@@ -50,8 +50,8 @@ def process_images(image1, image2):
     base64_image_2 = image_to_base64("image2.jpg")
     #base64_image_1 = image_to_base64('./room.jpg')
     #base64_image_2 = image_to_base64('./cleanroom.jpeg')
-    print(base64_image_1)
-    print(base64_image_2)
+    print(st.secrets["username"])
+    print(st.secrets["password"])
     
     response = client.chat.completions.create(
     model="aria",  # Model name updated
