@@ -26,7 +26,7 @@ output_text_placeholder = st.empty()
 def process_images(img1, img2):
     # Here, include code to send images to the backend and receive text output
     # For this example, let's assume it returns a dummy text
-    return "Processed output text from backend."
+    return "Processed output texts from backend."
 
 # Process Images and Display Output
 if image1 and image2:
