@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 from image_processor import process_images
-
+from image_processor import garbage_items
 # Page Configuration
 st.set_page_config(page_title="Image Upload and Analysis Display", layout="centered")
 
