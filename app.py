@@ -55,6 +55,8 @@ data = {
   ]
 }
 
+import pandas as pd
+
 st.header("Dirty Items")
 if data["dirty_items"]:
     dirty_items_df = pd.DataFrame(data["dirty_items"])
