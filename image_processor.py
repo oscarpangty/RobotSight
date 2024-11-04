@@ -109,7 +109,7 @@ def garbage_items(image1, image2):
     #base64_image_1 = image_to_base64('./room.jpg')
     #base64_image_2 = image_to_base64('./cleanroom.jpeg')
     
-response = client.chat.completions.create(
+    response = client.chat.completions.create(
     model="aria",  # Model name updated
     messages=[
         {
@@ -149,17 +149,17 @@ response = client.chat.completions.create(
                 {
                     "type": "text",
                     "text": '''Except for the items to be cleaned, what items are garbage that need to be thrown away.
-'''
-        }
-    ]
-        }
-        ],
-    stream=False,
-    temperature=0.6,
-    max_tokens=1024,
-    top_p=1,
-    stop=["<|im_end|>"]
-)
+        '''
+            }
+        ]
+            }
+            ],
+        stream=False,
+        temperature=0.6,
+        max_tokens=1024,
+        top_p=1,
+        stop=["<|im_end|>"]
+    )
     
     dirty_items_response=response.choices[0].message.content
     print(response.choices[0].message.content)
