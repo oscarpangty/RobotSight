@@ -21,14 +21,21 @@ if image2:
     st.image(Image.open(image2), caption="Original Room", use_column_width=True)
 
 # Placeholder for output text
-output_text_placeholder = st.empty()
+output_text_placeholder1 = st.empty()
+output_text_placeholder2 = st.empty()
 
 # Process Images and Display Output
 if image1 and image2:
     if st.button("Generate Insights"):
         with st.spinner("Processing images..."):
             output_text = process_images(image1, image2)
-            output_text_placeholder.subheader("Output Text")
-            output_text_placeholder.write(output_text)
+            output_text_placeholder1.subheader("Output Text")
+            output_text_placeholder1.write(output_text)
+            
+    if st.button("Garbage to be thrown away"):
+        with st.spinner("Processing images..."):
+            output_text = process_images(image1, image2)
+            output_text_placeholder2.subheader("Output Text")
+            output_text_placeholder2.write(output_text)
 else:
     st.info("Please upload both images to proceed.")
