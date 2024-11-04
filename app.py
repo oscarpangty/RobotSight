@@ -34,7 +34,7 @@ if image1 and image2:
             
     if st.button("Garbage to be thrown away"):
         with st.spinner("Processing images..."):
-            output_text = process_images(image1, image2)
+            output_text = garbage_items(image1, image2)
             output_text_placeholder2.subheader("Output Text")
             output_text_placeholder2.write(output_text)
 else:
