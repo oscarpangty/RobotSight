@@ -55,5 +55,17 @@ data = {
   ]
 }
 
-# Display the JSON data
-st.json(data)
+st.header("Dirty Items")
+if data["dirty_items"]:
+    dirty_items_df = pd.DataFrame(data["dirty_items"])
+    st.table(dirty_items_df)
+else:
+    st.write("No dirty items found.")
+
+# Display Garbage Section
+st.header("Garbage")
+if data["garbage"]:
+    garbage_df = pd.DataFrame(data["garbage"])
+    st.table(garbage_df)
+else:
+    st.write("No garbage items found.")
