@@ -71,7 +71,8 @@ def process_images(image1, image2):
                     },
                     {
                         "type": "text",
-                        "text": '''<image><image>You are a cleaning robot. The first image is a used hotel room. What items are inside this room? The second image is the original condition of this hotel room. What items are inside this room? In comparison, what items belong to the hotel? 
+                        "text": '''<image><image>You are a cleaning robot. The first image is a used hotel room. What items are inside this room? The second image is the original condition of this hotel room. What items are inside this room? 
+                        In comparison, what items belong to the hotel? 
                         Among items belonging to the hotel, summarize the dirty linens that appear needed to be cleaned '''  # Added <image> symbols for each image
                     }
                 ]
