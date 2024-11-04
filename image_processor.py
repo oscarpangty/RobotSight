@@ -33,6 +33,7 @@ def image_to_base64(image_path):
 
 dirty_items_response=""
 def process_images(image1, image2):
+    global dirty_items_response
     # Replace this with your actual processing logic
     # Example: performing some image processing and returning results as text
     
@@ -91,6 +92,7 @@ def process_images(image1, image2):
 
 
 def garbage_items(image1, image2):
+    global dirty_items_response
     # Replace this with your actual processing logic
     # Example: performing some image processing and returning results as text
     
