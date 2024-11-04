@@ -39,3 +39,21 @@ if image1 and image2:
             output_text_placeholder2.write(output_text)
 else:
     st.info("Please upload both images to proceed.")
+    
+data = {
+  "dirty_items": [
+    {
+      "item": "towels",
+      "status": "crumpled"
+    }
+  ],
+  "garbage": [
+    {
+      "item": "water bottle",
+      "type": "plastic"
+    }
+  ]
+}
+
+# Display the JSON data
+st.json(data)
