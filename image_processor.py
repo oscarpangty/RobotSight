@@ -150,7 +150,7 @@ def garbage_items(image1, image2):
             "content": [
                 {
                     "type": "text",
-                    "text": '''Except for the items to be cleaned, Summarize the plastic or paper garbage useless to either hotel or customer that needs to be thrown away.
+                    "text": '''You are a cleaning robot. Except for the items to be cleaned, Summarize the plastic or paper garbage absolutely useless to either hotel or customer that needs to be thrown away.
         '''
             }
         ]
