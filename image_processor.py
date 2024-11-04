@@ -31,7 +31,7 @@ def image_to_base64(image_path):
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
-
+dirty_items_response=""
 def process_images(image1, image2):
     # Replace this with your actual processing logic
     # Example: performing some image processing and returning results as text
@@ -84,8 +84,84 @@ def process_images(image1, image2):
         top_p=1,
         stop=["<|im_end|>"]
     )
-
-    print(response.choices[0].message.content)
     
+    dirty_items_response=response.choices[0].message.content
+    print(response.choices[0].message.content)
+    return response.choices[0].message.content
+
+
+def garbage_items(image1, image2):
+    # Replace this with your actual processing logic
+    # Example: performing some image processing and returning results as text
+    
+    # Just a placeholder for demonstration
+    output_text = "Processed output text from the backend with two images."
+    
+    # Example of loading and performing an operation with PIL (optional)
+    img1 = Image.open(image1)
+    img2 = Image.open(image2)
+
+    img1.save("image1.jpg", format="JPEG")
+    img2.save("image2.jpg", format="JPEG")
+    # Your image processing code here
+    base64_image_1 = image_to_base64("image1.jpg")
+    base64_image_2 = image_to_base64("image2.jpg")
+    #base64_image_1 = image_to_base64('./room.jpg')
+    #base64_image_2 = image_to_base64('./cleanroom.jpeg')
+    
+response = client.chat.completions.create(
+    model="aria",  # Model name updated
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/jpeg;base64,{base64_image_1}"
+                    }
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/jpeg;base64,{base64_image_2}"
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": '''<image><image>You are a cleaning robot. The first image is a used hotel room. What items are inside this room? 
+                    The second image is the original condition of this hotel room. What items are inside this room? In comparison, what items belong to the hotel? 
+                    Summarize the plastic or paper garbage useless to either hotel or customer that needs to be thrown away'''  # Added <image> symbols for each image
+                }
+            ]
+        },{
+            "role": "aria",
+            "content": [
+                {
+                    "type": "text",
+                    "text": f"{dirty_items_response}"
+                }
+            ]
+        },
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": '''Except for the items to be cleaned, what items are garbage that need to be thrown away.
+'''
+        }
+    ]
+        }
+        ],
+    stream=False,
+    temperature=0.6,
+    max_tokens=1024,
+    top_p=1,
+    stop=["<|im_end|>"]
+)
+    
+    dirty_items_response=response.choices[0].message.content
+    print(response.choices[0].message.content)
     return response.choices[0].message.content
     
