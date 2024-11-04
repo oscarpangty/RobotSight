@@ -163,7 +163,6 @@ def garbage_items(image1, image2):
         stop=["<|im_end|>"]
     )
     
-    dirty_items_response=response.choices[0].message.content
     print(response.choices[0].message.content)
     return response.choices[0].message.content
     
